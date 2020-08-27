@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="dark">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -10,6 +10,46 @@
 <ion-content padding>
   <p *ngIf="!accion.nombre" class="mensaje">Selecciona una operación del menu</p>
 
+  <div *ngFor="let c of cartas" style="text-align: right; padding-left: 45px;">
 
+    <div class="flexCont" id="conte{{c}}">
+      <span *ngIf="c == 2" class="simbolo"> 
+        <span [ngSwitch]="accion.valor">
+          <p *ngSwitchCase="'/'">
+            ÷
+          </p>
+          <p *ngSwitchCase="'*'">
+            x
+          </p>
+          <p *ngSwitchDefault>
+            {{accion.valor}}
+          </p>
+          </span>
+      </span>
+
+      <ion-card>
+        <ion-card-content>
+          <p class="numero"> 0 </p>
+        </ion-card-content>
+      </ion-card>
+    </div>
+    
+  </div>
+
+  <div *ngFor="let num of numeros" style="text-align: center">
+    <button 
+    ion-button 
+    *ngFor="let n of num" 
+    class="botonCal" 
+    (click)="botonPresiona(n)"
+    color="light"
+    round>
+      {{n}}
+    </button>
+  </div>
+
+  
+  <button ion-button block large style="background-color: #641aaa;"> Resultado </button>
+  
   <!-- <button ion-button secondary menuToggle>Toggle Menu</button> -->
 </ion-content>

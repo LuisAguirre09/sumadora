@@ -3,4 +3,49 @@ page-home {
         text-align: center;
         font-size: 12px;
     }
+
+    .simbolo{
+        text-align:right; 
+        font-size: 21px;
+    }
+
+    .resultadoBox{
+        background-color: rgb(54, 153, 8); 
+        color: aliceblue;
+        font-size: 18px;
+    }
+
+    .numero{
+        font-size: 18px;
+    }
+
+    #resultadoNum{
+        color: aliceblue;
+        font-size: 18px;
+    }
+
+    .botonCal{
+        width: 20%;
+        height: 64px;
+        font-size: 24px;
+    }
+
+    .flexCont{
+        display: flex;
+    }
+
+    #conte1{
+        margin-left: 11px;
+    }
+
+}
+
+ion-card,ion-card-content{
+    text-align: right;
+    font-weight: 500;
+
+}
+
+ion-card{
+    border: 3px solid blueviolet;
 }
