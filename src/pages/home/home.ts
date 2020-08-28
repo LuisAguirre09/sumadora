@@ -1,5 +1,5 @@
-import { Component, Input, ViewChild } from '@angular/core';
-import { NavController, NavParams, IonicTapInput } from 'ionic-angular';
+import { Component, Input } from '@angular/core';
+import { NavController, NavParams } from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
@@ -7,12 +7,11 @@ import { NavController, NavParams, IonicTapInput } from 'ionic-angular';
 })
 export class HomePage {
   @Input() ngStyle: { [klass: string]: any; }
-  @ViewChild(IonicTapInput) input:IonicTapInput
 
-  accion: Object[];
-  entradas: Array<{entrada: Number, digito: String}>
+  accion: Object[];//objeto que recibirá la info del navParams
+  entradas: Array<{entrada: Number, digito: String}> //diccionario de los inputs
 
-  numeros = [
+  numeros = [ //arreglo bi de los botones de la sumadora
     [7,8,9],
     [4,5,6],
     [1,2,3],
@@ -20,7 +19,6 @@ export class HomePage {
   ]
 
   inputFocus: number = null;
-
 
   constructor(public navCtrl: NavController, navParams: NavParams) {
     
@@ -46,13 +44,15 @@ export class HomePage {
       if( this.entradas[this.inputFocus].digito == "0"){
         this.entradas[this.inputFocus].digito = n;
 
-      }else if( n != 0 && this.entradas[this.inputFocus].digito != "0" ){
-        this.entradas[this.inputFocus].digito += n.toString()
+      }else if( n == 0 && this.entradas[this.inputFocus].digito == "0" ){
+        this.entradas[this.inputFocus].digito = n;
 
+      }else{
+        this.entradas[this.inputFocus].digito += n.toString()
       }
 
     }
-    
   }
+
 
 }
