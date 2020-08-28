@@ -5,22 +5,11 @@ page-home {
     }
 
     .simbolo{
-        text-align:right; 
+        text-align:center; 
         font-size: 21px;
     }
 
-    .resultadoBox{
-        background-color: rgb(54, 153, 8); 
-        color: aliceblue;
-        font-size: 18px;
-    }
-
     .numero{
-        font-size: 18px;
-    }
-
-    #resultadoNum{
-        color: aliceblue;
         font-size: 18px;
     }
 
@@ -34,18 +23,17 @@ page-home {
         display: flex;
     }
 
-    #conte1{
-        margin-left: 11px;
+}
+
+ion-input {
+    input {
+      text-align: center;
+      ::-webkit-input-placeholder {
+        text-align: right;
+      }
     }
+  }
 
-}
-
-ion-card,ion-card-content{
-    text-align: right;
-    font-weight: 500;
-
-}
-
-ion-card{
-    border: 3px solid blueviolet;
+.seleccionado{
+    border: 1px solid blueviolet;
 }

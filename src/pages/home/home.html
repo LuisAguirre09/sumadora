@@ -10,10 +10,10 @@
 <ion-content padding>
   <p *ngIf="!accion.nombre" class="mensaje">Selecciona una operación del menu</p>
 
-  <div *ngFor="let c of cartas" style="text-align: right; padding-left: 45px;">
+  <div *ngFor="let e of entradas; let i = index" style="text-align: right;">
 
-    <div class="flexCont" id="conte{{c}}">
-      <span *ngIf="c == 2" class="simbolo"> 
+    <div class="flexcont" id="conte{{e.entrada}}" >
+      <span *ngIf="i == 1" class="simbolo"> 
         <span [ngSwitch]="accion.valor">
           <p *ngSwitchCase="'/'">
             ÷
@@ -27,11 +27,16 @@
           </span>
       </span>
 
-      <ion-card>
-        <ion-card-content>
-          <p class="numero"> 0 </p>
-        </ion-card-content>
-      </ion-card>
+      <span *ngIf="i == 2" class="simbolo">
+        <p> = </p>
+      </span>
+
+      <ion-item>
+        <ion-input (ionFocus)="getFocus(e.entrada)"
+        style="text-align: right;padding-right: 10px;" 
+        value="{{e.digito}}">
+        </ion-input>
+      </ion-item>
     </div>
     
   </div>
@@ -41,7 +46,7 @@
     ion-button 
     *ngFor="let n of num" 
     class="botonCal" 
-    (click)="botonPresiona(n)"
+    (click)="botonPresionado(n)"
     color="light"
     round>
       {{n}}
@@ -49,7 +54,13 @@
   </div>
 
   
-  <button ion-button block large style="background-color: #641aaa;"> Resultado </button>
+  <button *ngIf="accion.nombre"
+    ion-button 
+    block 
+    large 
+    style="background-color: #3789e7;"> 
+    Resultado 
+  </button>
   
   <!-- <button ion-button secondary menuToggle>Toggle Menu</button> -->
 </ion-content>
