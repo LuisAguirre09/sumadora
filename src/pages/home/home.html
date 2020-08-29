@@ -34,7 +34,8 @@
       <ion-item>
         <ion-input (ionFocus)="getFocus(e.entrada)"
         style="text-align: right;padding-right: 10px;" 
-        value="{{e.digito}}">
+        value="{{e.digito}}"
+        readonly>
         </ion-input>
       </ion-item>
     </div>
@@ -58,7 +59,8 @@
     ion-button 
     block 
     large 
-    style="background-color: #3789e7;"> 
+    style="background-color: #3789e7;"
+    (click)="evaluar()"> 
     Resultado 
   </button>
   
