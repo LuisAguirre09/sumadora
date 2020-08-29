@@ -9,7 +9,7 @@ export class HomePage {
   @Input() ngStyle: { [klass: string]: any; }
 
   accion: Object[];//objeto que recibirá la info del navParams
-  entradas: Array<{entrada: Number, digito: String}> //diccionario de los inputs
+  entradas: Array<{entrada: Number, digito: string}> //diccionario de los inputs
 
   numeros = [ //arreglo bi de los botones de la sumadora
     [7,8,9],
